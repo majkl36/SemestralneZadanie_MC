@@ -7,7 +7,7 @@ namespace SemestralneZadanie_MC
 {
     class TextEditor
     {
-        private readonly string _data;
+        private string _data;
 
         public TextEditor(string vstupnySubor)
         {
