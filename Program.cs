@@ -5,10 +5,6 @@ using System.Windows.Forms;
 
 namespace SemestralneZadanie_MC
 {
-}
-
-namespace SemestralneZadanie_MC
-{
     internal static class Program
     {
         /// <summary>

@@ -18,6 +18,19 @@ namespace SemestralneZadanie_MC
         {
             InitializeComponent();
         }
+        private void otvoriťToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult odpovedDialogovehoOkna = openFileDialog1.ShowDialog();
+            if (odpovedDialogovehoOkna == DialogResult.OK)
+            {
+                this.textEditor = new TextEditor(openFileDialog1.FileName);
+                textBox1.Text = textEditor.Data;
+                this.Text = "Otvorené: " + Path.GetFullPath(openFileDialog1.FileName) + " - Text Master MC";
+                toolStripStatusLabel1.Text = "Otvorené: " + Path.GetFullPath(openFileDialog1.FileName);
+                úpravyToolStripMenuItem.Enabled = true;
+                uložiťToolStripMenuItem.Enabled = true;
+            }
+        }
 
         private void uložiťToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -28,39 +41,34 @@ namespace SemestralneZadanie_MC
                 this.Text = Path.GetFileName(saveFileDialog1.FileName);
             }
         }
-
         private void ukončiťToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        private void otvoriťToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DialogResult odpovedDialogovehoOkna = openFileDialog1.ShowDialog();
-            if (odpovedDialogovehoOkna == DialogResult.OK)
-            {                
-                this.textEditor = new TextEditor(openFileDialog1.FileName);
-                textBox1.Text = textEditor.Data;
-                this.Text = "Text Master MC - Otvorené: " + Path.GetFullPath(openFileDialog1.FileName);
-                toolStripStatusLabel1.Text = "Otvorené: " + Path.GetFullPath(openFileDialog1.FileName);
-            }
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult odp = MessageBox.Show("Chcete uložiť súbor?", "Otázka",
+            if (textEditor != null)
+            {
+                DialogResult odp = MessageBox.Show("Chcete uložiť súbor?", "Otázka",
                             MessageBoxButtons.YesNoCancel,
                             MessageBoxIcon.Exclamation,
                             MessageBoxDefaultButton.Button3);
-            if (odp == DialogResult.Yes)
-            {
-                uložiťToolStripMenuItem_Click(sender, e);
+                if (odp == DialogResult.Yes)
+                {
+                    uložiťToolStripMenuItem_Click(sender, e);
+                }
+                else if (odp == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                    //toolstrip label "Zrušené"
+                }
             }
-            else if (odp == DialogResult.Cancel)
-            {
-                e.Cancel = true;
-            }
+        }
 
+        private void oAplikáciiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 aboutBox = new AboutBox1();
+            aboutBox.ShowDialog();
         }
     }
 }

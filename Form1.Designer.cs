@@ -87,8 +87,9 @@
             // 
             // uložiťToolStripMenuItem
             // 
+            this.uložiťToolStripMenuItem.Enabled = false;
             this.uložiťToolStripMenuItem.Name = "uložiťToolStripMenuItem";
-            this.uložiťToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.uložiťToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uložiťToolStripMenuItem.Text = "Uložiť...";
             this.uložiťToolStripMenuItem.Click += new System.EventHandler(this.uložiťToolStripMenuItem_Click);
             // 
@@ -107,6 +108,7 @@
             this.toolStripMenuItem4,
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
+            this.úpravyToolStripMenuItem.Enabled = false;
             this.úpravyToolStripMenuItem.Name = "úpravyToolStripMenuItem";
             this.úpravyToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.úpravyToolStripMenuItem.Text = "Úpravy";
@@ -152,8 +154,9 @@
             // oAplikáciiToolStripMenuItem
             // 
             this.oAplikáciiToolStripMenuItem.Name = "oAplikáciiToolStripMenuItem";
-            this.oAplikáciiToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.oAplikáciiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oAplikáciiToolStripMenuItem.Text = "O aplikácii";
+            this.oAplikáciiToolStripMenuItem.Click += new System.EventHandler(this.oAplikáciiToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -186,7 +189,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.textBox2);
             this.splitContainer1.Size = new System.Drawing.Size(984, 515);
-            this.splitContainer1.SplitterDistance = 492;
+            this.splitContainer1.SplitterDistance = 661;
             this.splitContainer1.TabIndex = 0;
             // 
             // textBox1
@@ -198,7 +201,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(485, 508);
+            this.textBox1.Size = new System.Drawing.Size(654, 508);
             this.textBox1.TabIndex = 0;
             // 
             // textBox2
@@ -210,12 +213,16 @@
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(480, 508);
+            this.textBox2.Size = new System.Drawing.Size(311, 508);
             this.textBox2.TabIndex = 0;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Textový súbor|*.txt|Všetky súbory|*.*";
             // 
             // Form1
             // 
