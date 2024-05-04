@@ -48,12 +48,14 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -89,7 +91,7 @@
             // 
             this.uložiťToolStripMenuItem.Enabled = false;
             this.uložiťToolStripMenuItem.Name = "uložiťToolStripMenuItem";
-            this.uložiťToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uložiťToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.uložiťToolStripMenuItem.Text = "Uložiť...";
             this.uložiťToolStripMenuItem.Click += new System.EventHandler(this.uložiťToolStripMenuItem_Click);
             // 
@@ -110,38 +112,39 @@
             this.toolStripMenuItem6});
             this.úpravyToolStripMenuItem.Enabled = false;
             this.úpravyToolStripMenuItem.Name = "úpravyToolStripMenuItem";
-            this.úpravyToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.úpravyToolStripMenuItem.Text = "Úpravy";
+            this.úpravyToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.úpravyToolStripMenuItem.Text = "Upraviť";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(86, 22);
-            this.toolStripMenuItem2.Text = "01";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem2.Text = "Veľké písmená na malé";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(86, 22);
-            this.toolStripMenuItem3.Text = "02";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem3.Text = "Malé písmena na veľké";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(86, 22);
-            this.toolStripMenuItem4.Text = "03";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem4.Text = "Prvé písmeno vety na veľké";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(86, 22);
-            this.toolStripMenuItem5.Text = "04";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem5.Text = "Prvé písmeno slova na veľké";
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(86, 22);
-            this.toolStripMenuItem6.Text = "05";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(223, 22);
+            this.toolStripMenuItem6.Text = "Odstrániť diakritiku";
             // 
             // pomocníkToolStripMenuItem
             // 
@@ -154,7 +157,7 @@
             // oAplikáciiToolStripMenuItem
             // 
             this.oAplikáciiToolStripMenuItem.Name = "oAplikáciiToolStripMenuItem";
-            this.oAplikáciiToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oAplikáciiToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.oAplikáciiToolStripMenuItem.Text = "O aplikácii";
             this.oAplikáciiToolStripMenuItem.Click += new System.EventHandler(this.oAplikáciiToolStripMenuItem_Click);
             // 
@@ -172,8 +175,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
-            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(89, 17);
+            this.toolStripStatusLabel1.Text = "Text Master MC";
             // 
             // splitContainer1
             // 
@@ -187,7 +190,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(984, 515);
             this.splitContainer1.SplitterDistance = 661;
             this.splitContainer1.TabIndex = 0;
@@ -197,10 +200,12 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox1.Location = new System.Drawing.Point(4, 4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBox1.Size = new System.Drawing.Size(654, 508);
             this.textBox1.TabIndex = 0;
             // 
@@ -209,11 +214,13 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(3, 4);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox2.Location = new System.Drawing.Point(6, 19);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(311, 508);
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox2.Size = new System.Drawing.Size(301, 483);
             this.textBox2.TabIndex = 0;
             // 
             // openFileDialog1
@@ -224,6 +231,19 @@
             // 
             this.saveFileDialog1.Filter = "Textový súbor|*.txt|Všetky súbory|*.*";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(313, 508);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Archív zmien";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,6 +253,7 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MinimumSize = new System.Drawing.Size(1000, 600);
             this.Name = "Form1";
             this.Text = "Text Master MC";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -243,9 +264,10 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,6 +295,7 @@
         private System.Windows.Forms.ToolStripMenuItem ukončiťToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

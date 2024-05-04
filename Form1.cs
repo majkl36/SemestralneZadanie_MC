@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SemestralneZadanie_MC
@@ -25,11 +18,12 @@ namespace SemestralneZadanie_MC
             {
                 this.textEditor = new TextEditor(openFileDialog1.FileName);
                 textBox1.Text = textEditor.Data;
-                this.Text = "Otvorené: " + Path.GetFullPath(openFileDialog1.FileName) + " - Text Master MC";
+                this.Text = Path.GetFullPath(openFileDialog1.FileName) + " - Text Master MC";
                 toolStripStatusLabel1.Text = "Otvorené: " + Path.GetFullPath(openFileDialog1.FileName);
                 úpravyToolStripMenuItem.Enabled = true;
                 uložiťToolStripMenuItem.Enabled = true;
             }
+            //toolstrip otváranie súboru zrušené
         }
 
         private void uložiťToolStripMenuItem_Click(object sender, EventArgs e)
@@ -39,10 +33,14 @@ namespace SemestralneZadanie_MC
             {
                 File.WriteAllText(saveFileDialog1.FileName, this.textEditor.Data);
                 this.Text = Path.GetFileName(saveFileDialog1.FileName);
+                //toolstrip súbor uložený do - path
+                return;
             }
+            //toolstrip ukladanie súboru zrušené
         }
         private void ukončiťToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //toolstrip Ukončovanie aplikácie
             Application.Exit();
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -64,7 +62,14 @@ namespace SemestralneZadanie_MC
                 }
             }
         }
-
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        //zmena veľkých písmen na malé
+        {
+            textEditor.toLowercase();
+            textBox1.Text = textEditor.Data;
+            textBox2.Text = textEditor.Changes;
+            //toolstrip
+        }
         private void oAplikáciiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 aboutBox = new AboutBox1();
