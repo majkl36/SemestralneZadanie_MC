@@ -13,6 +13,22 @@ namespace SemestralneZadanie_MC
         }
         private void otvoriťToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (textEditor != null)
+            {
+                DialogResult odp = MessageBox.Show("Chcete uložiť súbor?", "Otázka",
+                            MessageBoxButtons.YesNoCancel,
+                            MessageBoxIcon.Exclamation,
+                            MessageBoxDefaultButton.Button3);
+                if (odp == DialogResult.Yes)
+                {
+                    uložiťToolStripMenuItem_Click(sender, e);
+                }
+                else if (odp == DialogResult.Cancel)
+                {
+                    return;
+                    //toolstrip label "Zrušené"
+                }
+            }
             DialogResult odpovedDialogovehoOkna = openFileDialog1.ShowDialog();
             if (odpovedDialogovehoOkna == DialogResult.OK)
             {
@@ -37,6 +53,11 @@ namespace SemestralneZadanie_MC
                 return;
             }
             //toolstrip ukladanie súboru zrušené
+        }
+        private void oAplikáciiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutBox1 aboutBox = new AboutBox1();
+            aboutBox.ShowDialog();
         }
         private void ukončiťToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -70,10 +91,37 @@ namespace SemestralneZadanie_MC
             textBox2.Text = textEditor.Changes;
             //toolstrip
         }
-        private void oAplikáciiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        //zmena malých písmen na veľké
         {
-            AboutBox1 aboutBox = new AboutBox1();
-            aboutBox.ShowDialog();
+            textEditor.toUppercase();
+            textBox1.Text = textEditor.Data;
+            textBox2.Text = textEditor.Changes;
+            //toolstrip
+        }
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        //prvé písmeno vety na veľké
+        {
+            textEditor.sentencesStartsToUpper();
+            textBox1.Text = textEditor.Data;
+            textBox2.Text = textEditor.Changes;
+            //toolstrip
+        }
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        //prvé písmeno slova na veľké
+        {
+            textEditor.wordsStartsToUpper();
+            textBox1.Text = textEditor.Data;
+            textBox2.Text = textEditor.Changes;
+            //toolstrip
+        }
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        //odstrániť diakritiku
+        {
+            textEditor.removeDiacritic();
+            textBox1.Text = textEditor.Data;
+            textBox2.Text = textEditor.Changes;
+            //toolstrip
         }
     }
 }

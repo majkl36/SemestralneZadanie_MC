@@ -26,7 +26,7 @@ using System.Runtime.InteropServices;
     "IN THE SOFTWARE.\r\n\r\n" +
     "For more information, please refer to <https://unlicense.org>")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Michal Cengel B-AIA DKM")]
+[assembly: AssemblyCompany("Michal Cengel - MTF STU, B-AIA DKM")]
 [assembly: AssemblyProduct("Text Master MC")]
 [assembly: AssemblyCopyright("Unlicense 2024")]
 [assembly: AssemblyTrademark("")]

@@ -1,6 +1,7 @@
-﻿using System.IO;
+﻿using System.Globalization;
+using System.IO;
 using System.Text;
-
+using System.Text.RegularExpressions;
 
 namespace SemestralneZadanie_MC
 {
@@ -8,11 +9,21 @@ namespace SemestralneZadanie_MC
     {
         private string _data;
         public string Data
-        { get { return _data; } }
+        {
+            get
+            {
+                return _data +
+                    "\r\n\r\n-----------------------------\r\n" +
+                    "Počet vykonaných zmien: " +
+                    _changesCount;
+            }
+        }
 
         private string _changes;
         public string Changes
         { get { return _changes; } }
+
+        private int _changesCount = 0;
 
         public TextEditor(string inputFile)
         {
@@ -33,12 +44,7 @@ namespace SemestralneZadanie_MC
         private void ArchiveChange(int pos, char originalLetter, char changedLetter)
         {
             _changes += "[" + pos + "]: " + originalLetter + " -> " + changedLetter + "\r\n";
-        }
-        public char toLowercase(char inChar, int pos)
-        {
-            char outChar = char.ToLower(inChar);
-            ArchiveChange(pos, outChar, inChar);
-            return char.ToLower(outChar);
+            _changesCount++;
         }
         public void toLowercase()
         {
@@ -61,6 +67,70 @@ namespace SemestralneZadanie_MC
             }
             _data = changedString.ToString();
         }
+        public void toUppercase()
+        {
+            ArchiveChange("Zmena malých písmen na veľké:");
+            StringBuilder changedString = new StringBuilder();
+            char origChar, changedChar;
+            for (int i = 0; i < _data.Length; i++)
+            {
+                origChar = _data[i];
+                if (char.IsLower(origChar) && char.IsLetter(origChar))
+                {
+                    changedChar = char.ToUpper(_data[i]);
+                    changedString.Append(changedChar);
+                    ArchiveChange(i, origChar, changedChar);
+                }
+                else
+                {
+                    changedString.Append(origChar);
+                }
+            }
+            _data = changedString.ToString();
+        }
+        public void sentencesStartsToUpper()
+        {
+            ArchiveChange("Prvé písmeno vety na veľké:");
+            string changed;
+            changed = Regex.Replace(_data.ToLower(), @"((?<=^\s*)\p{Ll}|(?<=\.\s+)\p{Ll})", m => m.Value.ToUpper());
+            for (int i = 0; i < _data.Length; i++)
+            {
+                if (_data[i] != changed[i])
+                    ArchiveChange(i, _data[i], changed[i]);
+            }
+            _data = changed;
+        }
+        public void wordsStartsToUpper()
+        {
+            ArchiveChange("Prvé písmeno slova na veľké:");
+            string changed;
+            changed = Regex.Replace(_data.ToLower(), @"\b\p{Ll}", m => m.Value.ToUpper());
+            for (int i = 0; i < _data.Length; i++)
+            {
+                if (_data[i] != changed[i])
+                    ArchiveChange(i, _data[i], changed[i]);
+            }
+            _data = changed;
+        }
+        public void removeDiacritic()
+        {
+            ArchiveChange("Odstránenie diakritiky:");
+            string normalizedString = _data.Normalize(NormalizationForm.FormD);
+            string changed = "";
+            foreach (char c in normalizedString)
+            {
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                    changed += c;
+            }
+            for (int i = 0; i < _data.Length; i++)
+            {
+                if (_data[i] != changed[i])
+                    ArchiveChange(i, _data[i], changed[i]);
+            }
+            _data = changed;
+        }
+        //end of class
     }
+    //end of namespace
 }
 
