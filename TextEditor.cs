@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -27,7 +28,29 @@ namespace SemestralneZadanie_MC
 
         public TextEditor(string inputFile)
         {
-            _data = NacitajSubor(inputFile);
+            try
+            {
+                _data = NacitajSubor(inputFile);
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("Vstupný súbor nenájdený!\n");
+                throw;
+            }
+            catch (UnauthorizedAccessException)
+            {
+                Console.WriteLine("Prístup do súboru je zamietnutý!\n");
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Chyba pri práci so súborom!\n");
+                throw;
+            }            
+            catch (Exception)
+            {
+                Console.WriteLine("Nastala neočakávaná chyba!");
+                throw;
+            }            
         }
         private string NacitajSubor(string openFileDialogFileName)
         {

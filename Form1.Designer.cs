@@ -39,16 +39,15 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pomocníkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oAplikáciiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -63,7 +62,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.súborToolStripMenuItem,
             this.úpravyToolStripMenuItem,
-            this.pomocníkToolStripMenuItem});
+            this.oAplikáciiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(984, 24);
@@ -150,20 +149,12 @@
             this.toolStripMenuItem6.Text = "Odstrániť diakritiku";
             this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
-            // pomocníkToolStripMenuItem
-            // 
-            this.pomocníkToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.oAplikáciiToolStripMenuItem});
-            this.pomocníkToolStripMenuItem.Name = "pomocníkToolStripMenuItem";
-            this.pomocníkToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
-            this.pomocníkToolStripMenuItem.Text = "Pomocník";
-            // 
             // oAplikáciiToolStripMenuItem
             // 
             this.oAplikáciiToolStripMenuItem.Name = "oAplikáciiToolStripMenuItem";
-            this.oAplikáciiToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.oAplikáciiToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.oAplikáciiToolStripMenuItem.Text = "O aplikácii";
-            this.oAplikáciiToolStripMenuItem.Click += new System.EventHandler(this.oAplikáciiToolStripMenuItem_Click);
+            this.oAplikáciiToolStripMenuItem.Click += new System.EventHandler(this.oAplikáciiToolStripMenuItem_Click_1);
             // 
             // statusStrip1
             // 
@@ -213,6 +204,19 @@
             this.textBox1.Size = new System.Drawing.Size(654, 508);
             this.textBox1.TabIndex = 0;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Location = new System.Drawing.Point(3, 4);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(313, 508);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Archív zmien";
+            // 
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -234,19 +238,6 @@
             // saveFileDialog1
             // 
             this.saveFileDialog1.Filter = "Textový súbor|*.txt|Všetky súbory|*.*";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(3, 4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(313, 508);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Archív zmien";
             // 
             // Form1
             // 
@@ -282,7 +273,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem súborToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem otvoriťToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pomocníkToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oAplikáciiToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
